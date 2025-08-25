@@ -2,21 +2,22 @@ import { useState, useEffect } from "react"
 import Header from "./components/Header"
 import { Minus, Plus } from "lucide-react"
 import Button from "./components/Button"
-import { formatearDinero, calcularTotalPagar, calcularMensuales } from "./helpers"
+import { formatearDinero, calcularTotalPagar } from "./helpers"
 
 function App() {
   const [cantidad, setCantidad] = useState(10000)
   const [meses, setMeses] = useState(6)
   const [total, setTotal] = useState(0)
-  const [mensuales, setMensuales] = useState(0)
+  const [pago, setPago] = useState(0)
 
   useEffect(() => {
     const resultadoTotalPagar = calcularTotalPagar(cantidad, meses)
     setTotal(resultadoTotalPagar)
-
-    const resultadoMensualesPagar = calcularMensuales(resultadoTotalPagar, meses)
-    setMensuales(resultadoMensualesPagar)
   }, [cantidad, meses])
+
+  useEffect(() => {
+    setPago(total / meses)
+  }, [total])
 
   const MIN = 0
   const MAX = 50000
@@ -103,7 +104,7 @@ function App() {
 
           <p className="text-xl text-gray-500 text-center font-bold">{meses} Meses</p>
           <p className="text-xl text-gray-500 text-center font-bold">{formatearDinero(total)} Total a pagar</p>
-          <p className="text-xl text-gray-500 text-center font-bold">{formatearDinero(mensuales)} Mensuales</p>
+          <p className="text-xl text-gray-500 text-center font-bold">{formatearDinero(pago)} Mensuales</p>
         </div>
       </div>
     </>

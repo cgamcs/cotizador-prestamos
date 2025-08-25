@@ -54,12 +54,7 @@ const calcularTotalPagar = (cantidad, meses) => {
     return total
 }
 
-const calcularMensuales = (total, meses) => {
-    return total / meses
-}
-
 export {
     formatearDinero,
-    calcularTotalPagar,
-    calcularMensuales
+    calcularTotalPagar
 }
