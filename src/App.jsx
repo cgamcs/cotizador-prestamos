@@ -2,11 +2,12 @@ import { useState } from "react"
 import Header from "./components/Header"
 import { Minus, Plus } from "lucide-react"
 import Button from "./components/Button"
-import { formatearDinero } from "./helpers"
+import { formatearDinero, calcularTotal } from "./helpers"
 
 function App() {
   const [cantidad, setCantidad] = useState(10000)
   const [meses, setMeses] = useState(6)
+  const [total, setTotal] = useState()
 
   const MIN = 0
   const MAX = 50000
