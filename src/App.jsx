@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Header from "./components/Header"
 import { Minus, Plus } from "lucide-react"
+import Button from "./components/Button"
 
 
 function App() {
@@ -42,21 +43,14 @@ function App() {
         <Header />
 
         <div className="flex justify-between my-14">
-          <button
-            type="button"
-            className="h-10 w-10 flex items-center justify-center font-bold text-white text-2xl bg-lime-500 rounded-full hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-lime-500"
-            onClick={handleClickDecremento}
-          >
-            <Minus />
-          </button>
-
-          <button
-            type="button"
-            className="h-10 w-10 flex items-center justify-center font-bold text-white text-2xl bg-lime-500 rounded-full hover:outline-none hover:ring-2 hover:ring-offset-2 hover:ring-lime-500"
-            onClick={handleClickIncremento}
-          >
-            <Plus />
-          </button>
+          <Button
+            operador={<Minus />}
+            fn={handleClickDecremento}
+          />
+          <Button
+            operador={<Plus />}
+            fn={handleClickIncremento}
+          />
         </div>
 
         <input
