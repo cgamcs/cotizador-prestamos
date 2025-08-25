@@ -39,10 +39,10 @@ function App() {
 
   return (
     <>
-      <div className="my-20 max-w-lg mx-auto bg-white shadow p-10">
+      <div className="my-10 max-w-lg mx-auto bg-white shadow-xl p-10 rounded-lg">
         <Header />
 
-        <div className="flex justify-between my-14">
+        <div className="flex w-full justify-between my-7">
           <Button
             operador={<Minus />}
             fn={handleClickDecremento}
@@ -68,6 +68,20 @@ function App() {
         <p className="text-center my-10 text-4xl font-extrabold text-indigo-600">
           {formatearDinero(cantidad)}
         </p>
+
+        <h2 className="text-2xl font-extrabold text-gray-600 text-center">
+          Elige un <span className="text-indigo-600">plazo</span> a pagar.
+        </h2>
+
+        <select
+          name=""
+          id=""
+          className="mt-10 w-full p-2 bg-white border border-gray-300 rounded-lg text-center text-xl font-bold text-gray-600"
+        >
+          <option value="6">6 meses</option>
+          <option value="12">12 meses</option>
+          <option value="18">18 meses</option>
+        </select>
       </div>
     </>
   )
