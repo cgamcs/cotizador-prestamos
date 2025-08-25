@@ -2,7 +2,7 @@ import { useState } from "react"
 import Header from "./components/Header"
 import { Minus, Plus } from "lucide-react"
 import Button from "./components/Button"
-
+import { formatearDinero } from "./helpers"
 
 function App() {
   const [cantidad, setCantidad] = useState(10000)
@@ -66,7 +66,7 @@ function App() {
         />
 
         <p className="text-center my-10 text-4xl font-extrabold text-indigo-600">
-          {cantidad}
+          {formatearDinero(cantidad)}
         </p>
       </div>
     </>
