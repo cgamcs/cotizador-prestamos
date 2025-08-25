@@ -7,27 +7,29 @@ const formatearDinero = (valor) => {
     return formatter.format(valor)
 }
 
-const calcularTotal = (cantidad, meses) => {
+const calcularTotalPagar = (cantidad, meses) => {
     let total
 
-    // Mientras mayor es la cantidad solicitada menor es el intrés
-    switch (cantidad) {
-        case 10000:
+    // Mientras mayor es la cantidad solicitada menor es el interés
+    switch (true) {
+        case (cantidad <= 10000):
             total = cantidad * 1.5
             break
 
-        case 20000:
+        case (cantidad <= 20000):
             total = cantidad * 1.3
             break
-        case 30000:
+
+        case (cantidad <= 30000):
             total = cantidad * 1.2
             break
 
-        case 40000:
+        case (cantidad <= 40000):
             total = cantidad * 1.1
             break
 
         default:
+            total = cantidad // o lo que definas como caso base
             break
     }
 
@@ -40,18 +42,24 @@ const calcularTotal = (cantidad, meses) => {
             total *= 1.3
             break
 
-        case 6:
+        case 18:
             total *= 1.4
             break
 
         default:
+            total *= 1.5
             break
     }
 
     return total
 }
 
+const calcularMensuales = (total, meses) => {
+    return total / meses
+}
+
 export {
     formatearDinero,
-    calcularTotal
+    calcularTotalPagar,
+    calcularMensuales
 }
