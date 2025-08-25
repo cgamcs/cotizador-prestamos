@@ -6,6 +6,7 @@ import { formatearDinero } from "./helpers"
 
 function App() {
   const [cantidad, setCantidad] = useState(10000)
+  const [meses, setMeses] = useState(6)
 
   const MIN = 0
   const MAX = 50000
@@ -77,6 +78,8 @@ function App() {
           name=""
           id=""
           className="mt-10 w-full p-2 bg-white border border-gray-300 rounded-lg text-center text-xl font-bold text-gray-600"
+          value={meses}
+          onChange={e => setMeses(+e.target.value)}
         >
           <option value="6">6 meses</option>
           <option value="12">12 meses</option>
